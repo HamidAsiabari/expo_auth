@@ -1,8 +1,8 @@
-import i18n from '@/i18n/i18'
-import { forget_password_submit, isEmailValid, isPasswordValid, request_set_new_password_submit } from '@/modules/auth/auth.service';
 import { CheckCircle, ChevronRight, Edit3 } from '@tamagui/lucide-icons';
 import { useLayoutEffect, useState } from 'react'
 import { Button,Text, Form, H4, Input, Spinner, Label, Separator, H5 } from 'tamagui'
+import i18n from '@i18n/i18'
+import { forget_password_submit, isEmailValid, isPasswordValid, request_set_new_password_submit } from '@modules/auth/auth.service';
 
 export default function ForgetPasswordForm() {
 
@@ -98,8 +98,12 @@ const request_validatio_code=()=>{
   
   return (
     <Form onSubmit={() => submit_form_handler()}
-     borderWidth={1} borderRadius="$4" gap="$2" backgroundColor="$background" width='$20'
-     borderColor="$borderColor" padding="$2" alignItems="center" >
+     borderWidth={1} borderRadius="$4" gap="$2" backgroundColor="$background"
+      
+     padding="$5" 
+     width="$21"
+     
+     borderColor="$borderColor" alignItems="center" >
         <H5>{i18n.t('forget_password_title')}</H5>
         <Separator  alignSelf="stretch"  marginVertical='$3' />
 

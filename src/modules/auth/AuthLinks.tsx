@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, H2, YStack } from 'tamagui'
 import { router } from 'expo-router'
-import i18n from '@/i18n/i18'
+import i18n from '@i18n/i18'
 
 const AuthLinks = () => {
   return (<YStack space="$5"  alignSelf='center' > 

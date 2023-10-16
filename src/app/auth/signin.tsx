@@ -1,9 +1,9 @@
 import { Button, H3, XStack, YStack} from 'tamagui'
 import { router } from 'expo-router'
-import i18n from '@/i18n/i18'
+import i18n from '@i18n/i18'
 import { ArrowLeft, LogIn } from '@tamagui/lucide-icons'
-import { MyStack } from '@/components/MyStack'
-import SignInForm from '@/modules/auth/SignInForm'
+import { MyStack } from '@components/MyStack'
+import SignInForm from '@modules/auth/SignInForm'
 
 const signin = () => {
 return (<MyStack justifyContent="flex-start">

@@ -2,7 +2,7 @@ import { ArrowLeft } from "@tamagui/lucide-icons";
 import { useRouter, useSearchParams } from "expo-router";
 import { Avatar, Button, Group, H3, H5, H6, ListItem, Paragraph, Separator, XGroup, XStack, YGroup, YStack } from "tamagui";
 
-import { MyStack } from "../../src/components/MyStack";
+import { MyStack } from "@components/MyStack";
 export default function User() {
   const router = useRouter();
   const params = useSearchParams();

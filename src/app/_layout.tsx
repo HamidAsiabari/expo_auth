@@ -9,8 +9,8 @@ import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { TamaguiProvider, Text, Theme } from "tamagui";
 
-import { MySafeAreaView } from "../src/components/MySafeAreaView";
-import config from "../tamagui.config";
+import { MySafeAreaView } from "@components/MySafeAreaView";
+import config from "@root/tamagui.config";
 
 SplashScreen.preventAutoHideAsync();
 

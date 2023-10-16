@@ -3,7 +3,7 @@ import { createInterFont } from "@tamagui/font-inter";
 import { createMedia } from "@tamagui/react-native-media-driver";
 import { shorthands } from "@tamagui/shorthands";
 import { themes, tokens } from "@tamagui/themes";
-import { createTamagui } from "tamagui";
+import { createTamagui, createTokens } from "tamagui";
 
 const animations = createAnimations({
   bouncy: {
@@ -39,7 +39,7 @@ const config = createTamagui({
     body: bodyFont
   },
   themes,
-  tokens,
+  tokens:createTokens({...tokens, size:{...tokens.size, $21:330 }}),
   media: createMedia({
     xs: { maxWidth: 660 },
     sm: { maxWidth: 800 },

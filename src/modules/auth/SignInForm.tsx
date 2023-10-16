@@ -1,9 +1,9 @@
-import i18n from '@/i18n/i18'
-import { isEmailValid, isPasswordValid, signup_submit } from '@/modules/auth/auth.service';
 import { CheckCircle, ChevronRight, Key } from '@tamagui/lucide-icons';
 import { router } from 'expo-router';
 import {  useState } from 'react'
 import { Button, Form, H4, Input, Spinner, Label, Separator } from 'tamagui'
+import i18n from '@i18n/i18'
+import { isEmailValid, isPasswordValid, signup_submit } from '@modules/auth/auth.service';
 
 export default function SignInForm() {
 
@@ -63,8 +63,8 @@ export default function SignInForm() {
       borderRadius="$4"
       backgroundColor="$background"
       borderColor="$borderColor"
-      padding="$2" 
-      width='$20'
+      padding="$5" 
+      width="$21"
       >
       <H4>{i18n.t('signin_title')}</H4>
      <Separator  alignSelf="stretch"  marginVertical='$3' />
