@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "scheme": "expo_auth",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "backgroundColor": "#ddffe2",
+      "image": "./assets/splash.png",
+      "resizeMode": "contain"
+    },
+    "icon": "./assets/icon.png",
+    "name": "expo_auth",
+    "slug": "expo_auth",
+    "web": {
+      "favicon": "./assets/icon.png",
+      "bundler": "metro"
+    },
+    "experiments": {
+      "tsconfigPaths": true
+    },
+    "extra": {
+      "supportsRTL": true      
+    },
+    "android": {
+    },
+    "plugins": [
+      "expo-localization"
+    ]
+  }
+}
