@@ -3,8 +3,14 @@ interface I_SignUpForm {
   password: string;
 }
 
+interface I_SignInForm {
+  username: string; // Email 
+  password: string;
+}
+
 interface I_SetNewPasswordForm {
   username: string; // Email 
   code:string;
   password: string;
 }
+

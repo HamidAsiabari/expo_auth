@@ -17,7 +17,7 @@ const translations = {
   forget_password_title: 'Reset password',
   go_to_forget_password:"I forgot my password",
   setNewPasswordBtn:"Set new password",
-  validation_code_sent_msg:"Validation code has been sent",
+  validation_code_sent_msg:"Code has been sent",
   firstname:"First name",
   lastname:"Last name",
   submit:"Submit"

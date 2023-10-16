@@ -2,7 +2,7 @@ import i18n from '@/i18n/i18'
 import { forget_password_submit, isEmailValid, isPasswordValid, request_set_new_password_submit } from '@/modules/auth/auth.service';
 import { CheckCircle, ChevronRight, Edit3 } from '@tamagui/lucide-icons';
 import { useLayoutEffect, useState } from 'react'
-import { Button, Form, H4, Input, Spinner, Label, Separator, H5 } from 'tamagui'
+import { Button,Text, Form, H4, Input, Spinner, Label, Separator, H5 } from 'tamagui'
 
 export default function ForgetPasswordForm() {
 
@@ -18,14 +18,14 @@ const [validationCodeIsValid, setValidationCodeIsValid] = useState<boolean>()
 const [password, setPassword] = useState<string>('')
 const [passwordIsValid, setPasswordIsValid] = useState<boolean>()
 
-const handleUsernameChange = (e) => {
-setUsername(e.target.value);
+const handleUsernameChange = (newText) => {
+setUsername(newText);
 };
-const handlePasswordChange = (e) => {
-setPassword(e.target.value);
+const handlePasswordChange = (newText) => {
+setPassword(newText);
 };
-const handleValidationCodeChange = (e) => {
-setValidationCode(e.target.value);
+const handleValidationCodeChange = (newText) => {
+setValidationCode(newText);
 };
 
 const validateInputs=()=>{
@@ -98,47 +98,47 @@ const request_validatio_code=()=>{
   
   return (
     <Form onSubmit={() => submit_form_handler()}
-     borderWidth={1} borderRadius="$4" gap="$2" backgroundColor="$background" 
-     borderColor="$borderColor" padding="$8" alignItems="center" >
-        <H4>{i18n.t('forget_password_title')}</H4>
+     borderWidth={1} borderRadius="$4" gap="$2" backgroundColor="$background" width='$20'
+     borderColor="$borderColor" padding="$2" alignItems="center" >
+        <H5>{i18n.t('forget_password_title')}</H5>
         <Separator  alignSelf="stretch"  marginVertical='$3' />
 
      {step === 'requestValidationCode' && <>
-      <Label alignSelf='flex-start' htmlFor="email_input_lable" >{i18n.t('email_input_lable')}:</Label>
-      <Input size="$4" 
+      <Label alignSelf='flex-start'  >{i18n.t('email_input_lable')}:</Label>
+      <Input size="$4"   alignSelf='stretch' 
         textContentType='emailAddress' keyboardType="email-address"
         value={username}
         editable={(status === 'off')}
         borderColor={(usernameIsValid==undefined || usernameIsValid)? undefined : 'red'}
         focusStyle={{borderColor:(usernameIsValid==undefined ||usernameIsValid)? undefined : 'yellow'}}
-        onChange={handleUsernameChange}
-        id="email_input_lable" borderWidth={1} 
+        onChangeText={handleUsernameChange}
+        id="email_input_lable_forgetpassword" borderWidth={1} 
         placeholder={i18n.t('email_input_lable')}/></>}
 
       {(step === 'setNewPassword') && <>
         <H5>{i18n.t('validation_code_sent_msg')}:</H5>
-        <Button iconAfter={<Edit3 />}  onPress={()=>{edit_username()}}><H4>{username} </H4> edit</Button>
+        <Button alignSelf='stretch' iconAfter={<Edit3 />}  onPress={()=>{edit_username()}}>{username}  edit</Button>
 
         <Label alignSelf='flex-start' htmlFor="validation_input_lable" >{i18n.t('validation_input_lable')}:</Label>
         <Input size="$4"   
             alignSelf='stretch'
             editable={(status === 'off')}
             value={validationCode}
-            onChange={handleValidationCodeChange}
+            onChangeText={handleValidationCodeChange}
             borderColor={(validationCodeIsValid==undefined || validationCodeIsValid)? undefined : 'red'}
             focusStyle={{borderColor:(validationCodeIsValid==undefined || validationCodeIsValid)? undefined : 'yellow'}}
             id="validation_input_lable"
             borderWidth={1}  placeholder={i18n.t('validation_input_lable')}/>
 
-        <Label alignSelf='flex-start' htmlFor="pass_input_lable" >{i18n.t('pass_input_lable')}:</Label>
+        <Label alignSelf='flex-start' >{i18n.t('pass_input_lable')}:</Label>
         <Input size="$4" secureTextEntry  new-password
             editable={(status === 'off')}
             alignSelf='stretch'
             value={password}
-            onChange={handlePasswordChange}
+            onChangeText={handlePasswordChange}
             borderColor={(passwordIsValid==undefined || passwordIsValid)? undefined : 'red'}
             focusStyle={{borderColor:(passwordIsValid==undefined || passwordIsValid)? undefined : 'yellow'}}
-            id="pass_input_lable"
+            id="pass_input_lable_forgetpassword"
             borderWidth={1} 
             placeholder={i18n.t('pass_input_lable')}/>
     </>}

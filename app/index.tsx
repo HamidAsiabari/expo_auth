@@ -1,3 +1,4 @@
+import { registerRootComponent } from "expo";
 import { MyStack } from "../src/components/MyStack";
 import AuthLinks from "@/modules/auth/AuthLinks";
 
@@ -8,3 +9,4 @@ export default function Home() {
     </MyStack>
   );
 }
+registerRootComponent(Home);

@@ -13,19 +13,19 @@ export default function SignInForm() {
   const [password, setPassword] = useState<string>('')
   const [passwordIsValid, setPasswordIsValid] = useState<boolean>(true)
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
-    if(e.target.value.length>0){
-      setUsernameIsValid(isEmailValid(e.target.value))
+  const handleUsernameChange = (usernameText:string) => {
+    setUsername(usernameText);
+    if(usernameText.length>0){
+      setUsernameIsValid(isEmailValid(usernameText))
     } else{
       setUsernameIsValid(true)
     }
   };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-    if(e.target.value.length>0){
-      setPasswordIsValid(isPasswordValid(e.target.value))
+  const handlePasswordChange = (passwordText:string) => {
+    setPassword(passwordText);
+    if(passwordText.length>0){
+      setPasswordIsValid(isPasswordValid(passwordText))
     } else{
       setPasswordIsValid(true)
     }
@@ -63,27 +63,28 @@ export default function SignInForm() {
       borderRadius="$4"
       backgroundColor="$background"
       borderColor="$borderColor"
-      padding="$8" 
+      padding="$2" 
+      width='$20'
       >
       <H4>{i18n.t('signin_title')}</H4>
      <Separator  alignSelf="stretch"  marginVertical='$3' />
       <Label alignSelf='flex-start' htmlFor="email_input_lable" >{i18n.t('email_input_lable')}:</Label>
-      <Input size="$4" 
+      <Input size="$4"  alignSelf='stretch'
       textContentType='emailAddress' keyboardType="email-address"
       value={username}
       editable={(status === 'off')}
 
       borderColor={(usernameIsValid)? undefined : 'red'}
       focusStyle={{borderColor:(usernameIsValid)? undefined : 'yellow'}}
-      onChange={handleUsernameChange}
+      onChangeText={handleUsernameChange}
       id="email_input_lable" borderWidth={1} 
        placeholder={i18n.t('email_input_lable')}/>
 
       <Label alignSelf='flex-start' htmlFor="pass_input_lable" >{i18n.t('pass_input_lable')}:</Label>
-      <Input size="$4" secureTextEntry  
+      <Input size="$4" secureTextEntry   alignSelf='stretch'
       value={password}
       editable={(status === 'off')}
-      onChange={handlePasswordChange}
+      onChangeText={handlePasswordChange}
       borderColor={(passwordIsValid)? undefined : 'red'}
       focusStyle={{borderColor:(passwordIsValid)? undefined : 'yellow'}}
       new-password id="pass_input_lable"

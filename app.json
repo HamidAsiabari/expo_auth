@@ -1,6 +1,6 @@
 {
   "expo": {
-    "scheme": "expo_auth",
+    "scheme": "tamagui-app",
     "userInterfaceStyle": "automatic",
     "splash": {
       "backgroundColor": "#ddffe2",
@@ -8,7 +8,7 @@
       "resizeMode": "contain"
     },
     "icon": "./assets/icon.png",
-    "name": "expo_auth",
+    "name": "expo auth",
     "slug": "expo_auth",
     "web": {
       "favicon": "./assets/icon.png",
@@ -18,9 +18,13 @@
       "tsconfigPaths": true
     },
     "extra": {
-      "supportsRTL": true      
+      "supportsRTL": true,
+      "eas": {
+        "projectId": "efa8c14e-d4a6-4a8c-ae58-b190608cddd1"
+      }
     },
     "android": {
+      "package": "com.hamidpoorhashemi.expo_auth"
     },
     "plugins": [
       "expo-localization"

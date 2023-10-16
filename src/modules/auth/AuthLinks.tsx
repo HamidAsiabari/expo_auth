@@ -9,8 +9,7 @@ const AuthLinks = () => {
         <Button onPress={() => router.push("/auth/signup")}>{i18n.t('go_to_signup')}</Button>
         <Button onPress={() => router.push("/auth/signin")}>{i18n.t('go_to_signin')}</Button>
         <Button onPress={() => router.push("/users/Hamid Asiabari")}>{i18n.t('go_to_test_profile')}</Button>
-    </YStack>
-  )
+    </YStack>)
 }
 
 export default AuthLinks

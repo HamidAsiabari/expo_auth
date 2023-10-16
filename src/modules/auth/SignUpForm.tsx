@@ -6,25 +6,25 @@ import { Button, Form, H4, Input, Spinner, Label, Separator } from 'tamagui'
 
 export default function SignUpForm() {
 
-  const [status, setStatus] = useState<'off' | 'submitting' | 'submitted'>('off')
+  const [status, setStatus] = useState<'off' | 'submitting' | 'submitted'>('off')  
   const [username, setUsername] = useState<string>('')
   const [usernameIsValid, setUsernameIsValid] = useState<boolean>(true)
   const [password, setPassword] = useState<string>('')
   const [passwordIsValid, setPasswordIsValid] = useState<boolean>(true)
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
-    if(e.target.value.length>0){
-      setUsernameIsValid(isEmailValid(e.target.value))
+  const handleUsernameChange = (usernameText:string) => {
+    setUsername(usernameText);
+    if(usernameText.length >0){
+      setUsernameIsValid(isEmailValid(usernameText))
     } else{
       setUsernameIsValid(true)
     }
   };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-    if(e.target.value.length>0){
-      setPasswordIsValid(isPasswordValid(e.target.value))
+  const handlePasswordChange = (passwordText:string) => {
+    setPassword(passwordText);
+    if(passwordText.length>0){
+      setPasswordIsValid(isPasswordValid(passwordText))
     } else{
       setPasswordIsValid(true)
     }
@@ -63,34 +63,35 @@ export default function SignUpForm() {
       borderRadius="$4"
       backgroundColor="$background"
       borderColor="$borderColor"
-      padding="$8" 
+      padding="$2" 
+      width='$20'
       >
       <H4>{i18n.t('signup_title')}</H4>
      <Separator  alignSelf="stretch"  marginVertical='$3' />
-      <Label alignSelf='flex-start' htmlFor="email_input_lable" >{i18n.t('email_input_lable')}:</Label>
-      <Input size="$4" 
+      <Label alignSelf='flex-start' htmlFor="email_input_lable_signup" >{i18n.t('email_input_lable')}:</Label>
+      <Input size="$4"  alignSelf='stretch'
       textContentType='emailAddress' keyboardType="email-address"
       value={username}
       editable={(status === 'off')}
 
       borderColor={(usernameIsValid)? undefined : 'red'}
       focusStyle={{borderColor:(usernameIsValid)? undefined : 'yellow'}}
-      onChange={handleUsernameChange}
-      id="email_input_lable" borderWidth={1} 
+      onChangeText={handleUsernameChange}
+      id="email_input_lable_signup" borderWidth={1} 
        placeholder={i18n.t('email_input_lable')}/>
 
-      <Label alignSelf='flex-start' htmlFor="pass_input_lable" >{i18n.t('pass_input_lable')}:</Label>
-      <Input size="$4" secureTextEntry  
-      value={password}
+      <Label alignSelf='flex-start' htmlFor="pass_input_lable_signup" >{i18n.t('pass_input_lable')}:</Label>
+      <Input size="$4" secureTextEntry  alignSelf='stretch'
+      value={password} onChangeText={handlePasswordChange} 
       editable={(status === 'off')}
-      onChange={handlePasswordChange}
+      // onChange={newText=>handlePasswordChange(newText)}
       borderColor={(passwordIsValid)? undefined : 'red'}
       focusStyle={{borderColor:(passwordIsValid)? undefined : 'yellow'}}
-      new-password id="pass_input_lable"
+      new-password id="pass_input_lable_signup"
       borderWidth={1}  placeholder={i18n.t('pass_input_lable')}/>
 
       <Form.Trigger asChild disabled={status !== 'off'} marginTop="$3">
-        <Button alignSelf='stretch' size="$4" theme="active_Button"
+        <Button alignSelf='stretch' size="$4" theme="active_Button" 
          iconAfter={(status === 'submitting') ? ( <Spinner /> ):((status === 'off') ? ChevronRight : <CheckCircle color='$green9' />) }
          >{i18n.t('submit')}</Button>
       </Form.Trigger>
