@@ -70,9 +70,9 @@ export default function SignInForm() {
      <Separator  alignSelf="stretch"  marginVertical='$3' />
       <Label alignSelf='flex-start' htmlFor="email_input_lable" >{i18n.t('email_input_lable')}:</Label>
       <Input size="$4"  alignSelf='stretch'
-      textContentType='emailAddress' keyboardType="email-address"
+      textContentType='emailAddress' inputMode="email"
       value={username}
-      editable={(status === 'off')}
+      disabled={(status !== 'off')}
 
       borderColor={(usernameIsValid)? undefined : 'red'}
       focusStyle={{borderColor:(usernameIsValid)? undefined : 'yellow'}}
@@ -83,7 +83,7 @@ export default function SignInForm() {
       <Label alignSelf='flex-start' htmlFor="pass_input_lable" >{i18n.t('pass_input_lable')}:</Label>
       <Input size="$4" secureTextEntry   alignSelf='stretch'
       value={password}
-      editable={(status === 'off')}
+      disabled={(status !== 'off')}
       onChangeText={handlePasswordChange}
       borderColor={(passwordIsValid)? undefined : 'red'}
       focusStyle={{borderColor:(passwordIsValid)? undefined : 'yellow'}}

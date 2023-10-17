@@ -110,9 +110,9 @@ const request_validatio_code=()=>{
      {step === 'requestValidationCode' && <>
       <Label alignSelf='flex-start'  >{i18n.t('email_input_lable')}:</Label>
       <Input size="$4"   alignSelf='stretch' 
-        textContentType='emailAddress' keyboardType="email-address"
+        textContentType='emailAddress' inputMode="email"
         value={username}
-        editable={(status === 'off')}
+        disabled={(status !== 'off')}
         borderColor={(usernameIsValid==undefined || usernameIsValid)? undefined : 'red'}
         focusStyle={{borderColor:(usernameIsValid==undefined ||usernameIsValid)? undefined : 'yellow'}}
         onChangeText={handleUsernameChange}
@@ -126,7 +126,7 @@ const request_validatio_code=()=>{
         <Label alignSelf='flex-start' htmlFor="validation_input_lable" >{i18n.t('validation_input_lable')}:</Label>
         <Input size="$4"   
             alignSelf='stretch'
-            editable={(status === 'off')}
+            disabled={(status !== 'off')}
             value={validationCode}
             onChangeText={handleValidationCodeChange}
             borderColor={(validationCodeIsValid==undefined || validationCodeIsValid)? undefined : 'red'}
@@ -136,7 +136,7 @@ const request_validatio_code=()=>{
 
         <Label alignSelf='flex-start' >{i18n.t('pass_input_lable')}:</Label>
         <Input size="$4" secureTextEntry  new-password
-            editable={(status === 'off')}
+            disabled={(status !== 'off')}
             alignSelf='stretch'
             value={password}
             onChangeText={handlePasswordChange}
